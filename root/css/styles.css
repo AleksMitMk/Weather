@@ -5,18 +5,115 @@
 body {
  padding: 0;
  margin: 0;
+ background-color: #9fe0f861;
 }
 .navbar{
+    width: 100%;
+    height: 70px;
     display: flex;
+    background: #7fdcff61;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+}
+.logo{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+.logo img{
+    width: 100%;
 }
 
+.navigon ul{
+    display: flex;
+}
+.navigon ul li{
+    list-style: none;
+}
 
+.navigon ul li a{
+    text-decoration: none;
+    color:black;
+    width: 20px;
+    
+}
 
+/* Hover effect on the menu buttons */
+
+.btn-flip {
+    opacity: 1;
+    outline: 0;
+    color: #fff;
+    line-height: 40px;
+    position: relative;
+    text-align: center;
+    letter-spacing: 1px;
+    display: inline-block;
+    text-decoration: none;
+    font-family: 'Open Sans';
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.btn-flip:hover:after {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+}
+.btn-flip:hover:before {
+    opacity: 0;
+    transform: translateY(50%) rotateX(90deg);
+}
+.btn-flip:after {
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    color: #323237;
+    display: block;
+    transition: 0.5s;
+    position: absolute;
+    background: #7fdcff61;
+    content: attr(data-back);
+    transform: translateY(-50%) rotateX(90deg);
+}
+.btn-flip:before {
+    top: 0;
+    left: 0;
+    opacity: 1;
+    color: #4b4b4b;
+    display: block;
+    padding: 0 30px;
+    line-height: 40px;
+    transition: 0.5s;
+    position: relative;
+    background: #b7ebfd;
+    content: attr(data-front);
+    transform: translateY(0) rotateX(0);
+}
+.show{
+    display: none;
+}
+.hiddenInfo{
+    position: absolute;
+    right: 20px;
+    z-index: 3333;
+    color: white;
+    top: 1px;
+    width: 200px;
+    text-align: center;
+}
 
 /* ____________Weather Cards ___________ */
 @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900);
 
-
+.weather-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-wrap: wrap;
+    margin: 100px 0;
+}
 
  .weather-wrapper {
 	 margin-top: 20px;
@@ -27,6 +124,7 @@ body {
      
 }
  .weather-card {
+     position: relative;
 	 margin: 20px 10px;
 	 border-radius: 20px;
 	 overflow: hidden;
@@ -34,22 +132,23 @@ body {
 	 background-color: white;
 	 box-shadow: 0px 0px 25px 1px rgba(50, 50, 50, 0.1);
 	 animation: appear 500ms ease-out forwards;
+    
 }
- .weather-card h1 {
+.tempAndDayInfo h1 {
 	 font-family: 'Lato', sans-serif;
 	 font-weight: 300;
 	 font-size: 80px;
-	 color: #b8b8b8;
+	 color: #ffffff;
      margin: 20px;
 	 opacity: 0;
 	 transform: translateX(150px);
 	 animation: title-appear 500ms ease-out 500ms forwards;
 }
- .weather-card p {
+.tempAndDayInfo p {
 	 font-family: 'Lato', sans-serif;
 	 font-weight: 300;
 	 font-size: 28px;
-	 color: #d2d2d2;
+	 color: #ffffff;
      margin: 20px;
 	 animation: title-appear 1s ease-out 500ms forwards;
 }
@@ -57,12 +156,18 @@ body {
 	 width: 100px;
 	 height: 100px;
 	 animation: weather-icon-move 5s ease-in-out infinite;
+     
 }
 .weather-icon img{
     width: 100%;
     margin: 20px;
+    border-radius: 25px;
 }
-
+.overlay{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.274);
+}
  @keyframes light {
 	 from {
 		 box-shadow: rgba(255, 255, 0, 0.2) 0 0 0 10px;
@@ -96,9 +201,95 @@ body {
 		 transform: translateX(0px);
 	}
 }
- 
+
+.sunny{
+    background-image: url("../img/bgImg/sunny.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -3;
+}
+.rainy{
+    background-image: url("../img/bgImg/rainy.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -3;
+}
+.cloudy{
+    background-image: url("../img/bgImg/cloudy.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -3;
+}
+.windy{
+    background-image: url("../img/bgImg/windy.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -3;
+}
+.stormy{
+    background-image: url("../img//bgImg/stormy.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -3;
+}
+.snowy{
+    background-image: url("../img/bgImg/snowy.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -3;
+}
+/* rotating wind arrow */
+
+.north-west{
+    transform: rotate(270deg)
+}
+.south-east{
+    transform: rotate(105deg)
+}
+.south-west{
+    transform: rotate(195deg)
+}
 
 
+.direction{
+    margin: 20px 0;
+    border: 1px solid white;
+    border-radius: 30px;
+    background: #3c3c3d59;
+}
+.direction i{
+    margin: 10px 0;
+}
 /* _______Animated Icons___________  */
 /* .svg-contain {
     max-width: 150px;

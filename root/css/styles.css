@@ -1,13 +1,106 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
 body {
- 
+ padding: 0;
+ margin: 0;
+}
+.navbar{
+    display: flex;
 }
 
 
 
 
+/* ____________Weather Cards ___________ */
+@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900);
+
+
+
+ .weather-wrapper {
+	 margin-top: 20px;
+	 display: flex;
+	 flex-direction: row;
+	 flex-wrap: wrap;
+	 justify-content: center;
+     
+}
+ .weather-card {
+	 margin: 20px 10px;
+	 border-radius: 20px;
+	 overflow: hidden;
+	 width: 400px;
+	 background-color: white;
+	 box-shadow: 0px 0px 25px 1px rgba(50, 50, 50, 0.1);
+	 animation: appear 500ms ease-out forwards;
+}
+ .weather-card h1 {
+	 font-family: 'Lato', sans-serif;
+	 font-weight: 300;
+	 font-size: 80px;
+	 color: #b8b8b8;
+     margin: 20px;
+	 opacity: 0;
+	 transform: translateX(150px);
+	 animation: title-appear 500ms ease-out 500ms forwards;
+}
+ .weather-card p {
+	 font-family: 'Lato', sans-serif;
+	 font-weight: 300;
+	 font-size: 28px;
+	 color: #d2d2d2;
+     margin: 20px;
+	 animation: title-appear 1s ease-out 500ms forwards;
+}
+ .weather-icon {
+	 width: 100px;
+	 height: 100px;
+	 animation: weather-icon-move 5s ease-in-out infinite;
+}
+.weather-icon img{
+    width: 100%;
+    margin: 20px;
+}
+
+ @keyframes light {
+	 from {
+		 box-shadow: rgba(255, 255, 0, 0.2) 0 0 0 10px;
+	}
+	 to {
+		 box-shadow: rgba(255, 255, 0, 0.2) 0 0 0 17px;
+	}
+}
+
+ @keyframes appear {
+	 0% {
+		 transform: scale(0);
+	}
+	 50% {
+		 transform: scale(1.05);
+	}
+	 75% {
+		 transform: scale(0.95);
+	}
+	 100% {
+		 transform: scale(1);
+	}
+}
+ @keyframes title-appear {
+	 from {
+		 opacity: 0;
+		 transform: translateX(150px);
+	}
+	 to {
+		 opacity: 1;
+		 transform: translateX(0px);
+	}
+}
+ 
+
 
 /* _______Animated Icons___________  */
-.svg-contain {
+/* .svg-contain {
     max-width: 150px;
     margin: 20px;
     width: 100%;
@@ -17,6 +110,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    flex-wrap: wrap;
 }
 .big-path, .lightening, .line, .little-path {
     stroke-miterlimit: 10;
@@ -379,4 +473,4 @@ body {
     50% {
         transform: translateX(2px) rotate(0.01deg);
    }
-}
+} */
